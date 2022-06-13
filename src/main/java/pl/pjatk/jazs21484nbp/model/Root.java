@@ -1,23 +1,31 @@
 package pl.pjatk.jazs21484nbp.model;
 
-import java.util.List;
-
 public class Root {
 
-    private List<Price> prices;
-
-    public Root(List<Price> prices) {
-        this.prices = prices;
-    }
+    private String data;
+    private double cena;
 
     public Root() {
     }
 
-    public List<Price> getPrices() {
-        return prices;
+    public Root(String data, double cena) {
+        this.data = data;
+        this.cena = cena;
     }
 
-    public void setPrices(List<Price> prices) {
-        this.prices = prices;
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public double getCena() {
+        return cena;
+    }
+
+    public void setCena(double cena) {
+        this.cena = cena;
     }
 }

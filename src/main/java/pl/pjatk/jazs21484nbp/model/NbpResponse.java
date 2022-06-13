@@ -3,8 +3,8 @@ package pl.pjatk.jazs21484nbp.model;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity(name = "gold")
 public class NbpResponse {
@@ -19,10 +19,10 @@ public class NbpResponse {
     private Gold gold;
 
     @ApiModelProperty(notes = "This is start date", required = true, value = "some date", example = "1970.01.01")
-    private Date dateFrom;
+    private LocalDate dateFrom;
 
     @ApiModelProperty(notes = "This is end date", required = true, value = "some date", example = "1977.01.01")
-    private Date dateTo;
+    private LocalDate dateTo;
 
     @ApiModelProperty(notes = "This is average price of gold", required = true, value = "some price", example = "160.00")
     private double average;
@@ -30,17 +30,16 @@ public class NbpResponse {
     @ApiModelProperty(notes = "This is date of create a request", required = true, value = "some date", example = "2021.07.04 17:45:00")
     private LocalDateTime createdAt;
 
-    public NbpResponse(Long id, Gold gold, Date dateFrom, Date dateTo, double average, LocalDateTime createdAt) {
+    public NbpResponse() {
+    }
+
+    public NbpResponse(Long id, Gold gold, LocalDate dateFrom, LocalDate dateTo, double average, LocalDateTime createdAt) {
         this.id = id;
         this.gold = gold;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.average = average;
         this.createdAt = createdAt;
-    }
-
-    public NbpResponse() {
-
     }
 
     public Long getId() {
@@ -59,19 +58,19 @@ public class NbpResponse {
         this.gold = gold;
     }
 
-    public Date getDateFrom() {
+    public LocalDate getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(Date dateFrom) {
+    public void setDateFrom(LocalDate dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public Date getDateTo() {
+    public LocalDate getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(Date dateTo) {
+    public void setDateTo(LocalDate dateTo) {
         this.dateTo = dateTo;
     }
 

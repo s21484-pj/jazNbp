@@ -17,7 +17,7 @@ import pl.pjatk.jazs21484nbp.service.NbpService;
 @RequestMapping("/nbp")
 public class NbpController {
 
-    private NbpService nbpService;
+    private final NbpService nbpService;
 
     public NbpController(NbpService nbpService) {
         this.nbpService = nbpService;
@@ -37,17 +37,17 @@ public class NbpController {
                     name = "dateFrom",
                     type = "String",
                     value = "description",
-                    example = "1970.01.01",
+                    example = "2022-01-01",
                     required = true,
-                    defaultValue = "1970.01.01")
+                    defaultValue = "2022.01.01")
             @PathVariable String dateFrom,
             @ApiParam(
                     name = "dateTo",
                     type = "String",
                     value = "description",
-                    example = "1977.01.01",
+                    example = "2022.06.01",
                     required = true,
-                    defaultValue = "1977.01.01")
+                    defaultValue = "2022.01.01")
             @PathVariable String dateTo) {
         return ResponseEntity.ok(nbpService.calculateAverageGoldPrice(dateFrom, dateTo));
     }
